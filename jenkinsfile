@@ -1,15 +1,15 @@
 pipeline {
   agent { label "node" }
   stages {
-    stage('T') {
-      // when { anyOf { changeset "servers/N/*" } }
+    stage('Archive N') {
+      when { anyOf { changeset "servers/N/*" } }
       steps {
         dir('servers') {
           sh "/home/kakao9992/7zip/7zz a -t7z ../N.7z N/*"
         }
       }
     }
-    stage('Artifact archive') {
+    stage('Archive S') {
       steps {
         script {
           if (!fileExists('N.7z')) {
