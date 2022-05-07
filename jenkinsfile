@@ -4,8 +4,8 @@ pipeline {
     stage('T') {
       // when { anyOf { changeset "servers/N/*" } }
       steps {
-        dir('modpacks') {
-          sh "/home/kakao9992/7zip/7zz a -t7z N.7z servers/N/*"
+        dir('servers') {
+          sh "/home/kakao9992/7zip/7zz a -t7z N.7z N/*"
         }
       }
     }
