@@ -2,23 +2,23 @@ pipeline {
   agent { label "node" }
   stages {
     stage('Archive N') {
-      when { anyOf { changeset "servers/N/*" } }
+      when { anyOf { changeset "servers/Lithium/*" } }
       steps {
         dir('servers') {
-          sh "/home/kakao9992/7zip/7zz a -t7z ../N.7z N/*"
+          sh "/home/kakao9992/7zip/7zz a -t7z ../Lithium.7z Lithium/*"
         }
       }
     }
     stage('Archive S') {
       steps {
         script {
-          if (!fileExists('N.7z')) {
+          if (!fileExists('Lithium.7z')) {
             sh '''
               set +x
-              wget https://jenkins.misilelaboratory.xyz/job/map-build/lastSuccessfulBuild/artifact/N.7z &> /dev/null
+              wget https://jenkins.misilelaboratory.xyz/job/map-build/lastSuccessfulBuild/artifact/Lithium.7z &> /dev/null
             '''
           }
-          archiveArtifacts 'N.7z'
+          archiveArtifacts 'Lithium.7z'
         }
       }
     }
