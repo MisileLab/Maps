@@ -1,0 +1,27 @@
+pipeline {
+  agent { label "node" }
+  stages {
+    stage('T') {
+      when { anyOf { changeset "servers/N/*" } }
+      steps {
+        dir('modpacks') {
+          sh "/home/kakao9992/7zip/7zz a -t7z N.7z Servers/N/*"
+        }
+      }
+    }
+    stage('Artifact archive') {
+      steps {
+        script {
+          if (!fileExists('N.7z')) {
+            sh '''
+              set +x
+              wget https://jenkins.misilelaboratory.xyz/job/map-build/lastSuccessfulBuild/artifact/N.7z &> /dev/null
+            '''
+          }
+          archiveArtifacts 'N.7z'
+        }
+      }
+    }
+  }
+}
+

@@ -1,3 +1,3 @@
 # Maps
 
-Maps by (ajdk, marope, MisileLaboratory)
+Maps by MisileLaboratory
