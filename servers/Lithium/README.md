@@ -1,5 +1,7 @@
 # Lithium
 
+`such ending suits them both`
+
 Ram 8GB~12GB
 
 ## Server requirements
