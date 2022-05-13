@@ -1,5 +1,1 @@
-# Maps
-
-Maps by MisileLaboratory
-
-[Download link](https://jenkins.misilelaboratory.xyz/job/map-build)
+Change to [this link](https://gitea.misilelaboratory.xyz/MisileLaboratory/map)
